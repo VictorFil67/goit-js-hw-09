@@ -1,3 +1,5 @@
+import Notiflix from 'notiflix';
+
 function createPromise(position, delay) {
   return new Promise ((resolve, reject) => {
     setTimeout(() => {
@@ -34,10 +36,12 @@ const {delay : initDelay, step, amount} = userOptions;
     const delay = Number(initDelay) + position * Number(step);
     createPromise(position, delay)
     .then(({ position, delay }) => {
-      console.log(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
+      // console.log(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
+      Notiflix.Notify.success(`✅ Fulfilled promise ${position + 1} in ${delay}ms`);
     })
     .catch(({ position, delay }) => {
-      console.log(`❌ Rejected promise ${position + 1} in ${delay}ms`);
+      // console.log(`❌ Rejected promise ${position + 1} in ${delay}ms`);
+      Notiflix.Notify.failure(`❌ Rejected promise ${position + 1} in ${delay}ms`);
     });
   }
 }

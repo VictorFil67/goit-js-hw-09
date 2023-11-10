@@ -1,4 +1,14 @@
 import flatpickr from "flatpickr";
+// all modules
+import Notiflix from 'notiflix';
+
+// one by one
+import { Notify } from 'notiflix/build/notiflix-notify-aio';
+import { Report } from 'notiflix/build/notiflix-report-aio';
+import { Confirm } from 'notiflix/build/notiflix-confirm-aio';
+import { Loading } from 'notiflix/build/notiflix-loading-aio';
+import { Block } from 'notiflix/build/notiflix-block-aio';
+
 // Додатковий імпорт стилів
 import "flatpickr/dist/flatpickr.min.css";
 const ref = {
@@ -25,7 +35,8 @@ const options = {
 
     onClose(selectedDates) {
         if (selectedDates[0].getTime() < Date.now()){
-            alert("Please choose a date in the future");
+            Notiflix.Notify.failure('Please choose a date in the future');
+            // alert("Please choose a date in the future");
             return;
         }
         selDate = selectedDates[0];
@@ -35,14 +46,14 @@ const options = {
     start() {
         this.intervalId = setInterval(() => {
             const diff =  selDate.getTime() - Date.now(); 
-            console.log(diff);
+            // console.log(diff);
             if (diff < 0) {
                 this.stop();  
                 return;
               }
 
               let { days, hours, minutes, seconds } = this.convertMs(diff);
-              console.log(days, hours, minutes, seconds);
+            //   console.log(days, hours, minutes, seconds);
               ref.days.textContent = this.addLeadingZero(days);
               ref.hours.textContent = this.addLeadingZero(hours);
               ref.minutes.textContent = this.addLeadingZero(minutes);
