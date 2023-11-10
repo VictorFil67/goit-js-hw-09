@@ -22,7 +22,7 @@ img {
   padding: 8px;
     font-size: 22px;
 }
-[data-start] {
+[data-start], [data-stop] {
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 4px;

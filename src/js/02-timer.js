@@ -22,25 +22,17 @@ const options = {
     defaultDate: new Date(),
     minuteIncrement: 1,
     intervalId: null,
-    // diff: null,
 
     onClose(selectedDates) {
-        // console.log(selectedDates[0].getTime());
-        // console.log(Date.now());
         if (selectedDates[0].getTime() < Date.now()){
             alert("Please choose a date in the future");
             return;
         }
         selDate = selectedDates[0];
         ref.startBtn.disabled = false;
-        // console.log(ref.days, ref.hours, ref.minutes, ref.seconds);
-        // return this.diff; 
     },
 
     start() {
-        // if (ref.startBtn.disabled) {
-        //     return;
-        // }
         this.intervalId = setInterval(() => {
             const diff =  selDate.getTime() - Date.now(); 
             console.log(diff);
@@ -82,24 +74,6 @@ const options = {
       
         return { days, hours, minutes, seconds };
       },
-      
-    //   console.log(convertMs(2000)); // {days: 0, hours: 0, minutes: 0, seconds: 2}
-    //   console.log(convertMs(140000)); // {days: 0, hours: 0, minutes: 2, seconds: 20}
-    //   console.log(convertMs(24140000)); // {days: 0, hours: 6 minutes: 42, seconds: 20}
-
-    //   getTimeComponents(diff) {
-    //     const days = Math.floor(diff / 1000 / 60 / 60 / 24);
-    //     const hours = Math.floor(diff / 1000 / 60 / 60) % 24;
-    //     const minutes = Math.floor(diff / 1000 / 60) % 60;
-    //     const seconds = Math.floor(diff / 1000) % 60;
-    
-    //     return {
-    //       days,
-    //       hours,
-    //       minutes,
-    //       seconds,
-    //     };
-    //   },
     
     addLeadingZero(value) {
         return String(value).padStart(2, '0');
