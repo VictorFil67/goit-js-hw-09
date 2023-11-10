@@ -16,3 +16,36 @@ img {
   display: block;
   max-width: 100%;
 }
+
+/* Timer */
+.flatpickr-input {
+  padding: 8px;
+    font-size: 22px;
+}
+[data-start] {
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 4px;
+  color: #f00;
+  font-weight: bold;
+  font-size: 20px;
+}
+.timer {
+  display: flex;
+  gap: 25px;
+}
+.field {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.value {
+  font-size: 70px;
+  font-weight: bold;
+  color: blue;
+}
+.label {
+  font-weight: bold;
+  font-size: 21px;
+}

@@ -40,6 +40,3 @@ ref.stopBtn.style.opacity = 0.4;
 ref.startBtn.style.opacity = 1;
         }
     }
-
-    
-// colorSwith.start();
